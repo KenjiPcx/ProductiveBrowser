@@ -9,21 +9,15 @@ export const config: PlasmoCSConfig = {
 }
 
 const Modal = () => {
-  const [isOpen, setIsOpen] = useState(true)
-  const [aiText, setAiText] = useState("heeki")
-
   useEffect(() => {
     chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       if (message.action === "showSpoilerModal") {
-        console.log(message.text)
-        setAiText(message.text)
-        setIsOpen(true)
-        alert(message.text)
+        alert(message.text) // Just use this instead
       }
     })
   }, [])
 
-  return <AiTextModal aiText={aiText} isOpen={isOpen} setIsOpen={setIsOpen} />
+  return <div></div>
 }
 
 export default Modal
